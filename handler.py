@@ -31,7 +31,7 @@ def scraping(event, context):
 
         return {
             "statusCode": 200,
-            "body": json.dumps({"response": source, "input": event})
+            "body": json.dumps({"response": source})
         }
     except Exception as e:
         print(e)
