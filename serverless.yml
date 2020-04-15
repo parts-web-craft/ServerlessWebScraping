@@ -1,0 +1,23 @@
+service: web-scraping
+
+provider:
+  name: aws
+  runtime: python3.7
+
+  stage: dev
+  region: ap-northeast-1
+
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: true
+
+functions:
+  scraping:
+    handler: handler.scraping
+    timeout: 30
+    events:
+      - http:
+          path: /scraping
+          method: post
